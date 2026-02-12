@@ -9,13 +9,20 @@ import Messages from "../pages/Messages";
 import Profile from "../pages/Profile";
 import Loading from "../components/Loading";
 import { Navigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
+import { useUser, useAuth } from '@clerk/clerk-react';
 import { Toaster } from "react-hot-toast";
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
+import { useEffect } from "react"
 
 // Protected Route wrapper component
 function ProtectedRoute() {
   const { user, isLoaded } = useUser();
+   const {getToken} = useAuth();
+  useEffect(()=>{
+if (user){
+  getToken().then((token)=>console.log(token))
+}
+  },[user])
   
   // Wait for Clerk to finish loading
   if (!isLoaded) {
@@ -78,6 +85,7 @@ const router = createBrowserRouter([
 ]);
 
 export default function RoutesPages() {
+ 
   return (
     <>
       <Toaster />
