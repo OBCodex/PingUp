@@ -4,7 +4,7 @@ import Connection from "../models/Connection.js";
 import sendEmail from "../configs/nodeMailer.js";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "my-app" });
+export const inngest = new Inngest({ id: "pingup-app" });
 
 // INNGEST FUNCTION TO SAVE USER DATA TO DATABASE
 
@@ -135,5 +135,5 @@ export const functions = [
     syncUserCreation,
     syncUserUpdation,
     syncUserDeletion,
-    sendNewConnectionRequestReminder
+    sendNewConnectionRequestReminder,
 ];
