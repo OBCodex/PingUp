@@ -1,4 +1,4 @@
-import imagekit from "../configs/imagekit.js";
+import imagekit from "../configs/imageKit.js";
 import Connection from "../models/Connection.js";
 import User from "../models/User.js";
 import fs from "fs";
